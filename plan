@@ -1,22 +1,23 @@
+Game Elements:
 Display 
 Ability to move character : keyboard service
-cascading icons - top to bottom
-hit detection to get points or lose points
-display points
-delete object apon collection
-coordinate funcitons
+Cascading icons - top to bottom
+Hit detection to get points or lose points
+Display points
+Delete object apon collection
+Coordinate funcitons
 
-Replace Artifact with Rock(Actor) and Gem(Actor) and Player(Actor) # Make 3 inheriting classes.
-    Rock: inherits actor. have point value attribute. have a getter for point value.
-    Gem: inherits actor. have point value attribute. have a getter for point value.
-    Player: inherit actor. have point score. have getter and setter for point score.
-Give rocks and gems velocity. # Do when called in __main__.py
-    
-Make the gems and rocks loop when hitting the bottom. # Do in director.
-Display points, player, rocks, and gems. # Do in director.
+Repo Design Plan:
+-Update the README to reflect the Greed game play, and team information.
+-Use services and shared folders and actor file as is/ with minor tweaks to adapt to Greed.
+-Replace Artifact with Rock(Actor), Gem(Actor), and Player(Actor) # Make all 3 inheriting classes.
+    Rock: Inherits Actor, has a point value attribute, and has a getter method for the point value. -Cyrille?
+    Gem: Inherits Actor, has a point value attribute, and has a getter method for the point value. - Kosei
+    Player: Inherits Actor, has a point score attribute, and has getter and setter methods for the point score. -Camden
+-Give rocks and gems velocity. # Do when called in __main__.py - Jenny 
+-Make the gems and rocks loop when hitting the bottom. # Do in director. -Mary
+-Display points, player, rocks, and gems. # Do in director. -Mary
 
 
-Use services and shared folders and actor file as is.
 
-Update the readme to reflect the Greed game play, and team information.
 
