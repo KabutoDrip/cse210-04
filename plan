@@ -6,17 +6,17 @@ display points
 delete object apon collection
 coordinate funcitons
 
-Artifact < Rock(Actor) and Gem(Actor) and Player(Actor) # Make 3 inheriting classes.
-
-
-
-
-
-Give rocks and gems velocity. Actor.move_next() # Make the gems move down.
-Make player have score counter.
+Replace Artifact with Rock(Actor) and Gem(Actor) and Player(Actor) # Make 3 inheriting classes.
+    Rock: inherits actor. have point value attribute. have a getter for point value.
+    Gem: inherits actor. have point value attribute. have a getter for point value.
+    Player: inherit actor. have point score. have getter and setter for point score.
+Give rocks and gems velocity. # Do when called in __main__.py
+    
 Make the gems and rocks loop when hitting the bottom. # Do in director.
-Give gems and rocks point attributes.
-Display points, player, rocks, and gems.
+Display points, player, rocks, and gems. # Do in director.
 
 
+Use services and shared folders and actor file as is.
+
+Update the readme to reflect the Greed game play, and team information.
 
