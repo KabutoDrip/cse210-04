@@ -5,3 +5,12 @@ hit detection to get points or lose points
 display points
 delete object apon collection
 coordinate funcitons
+
+Artifact < Rock(Actor) and Gem(Actor) # Make 2 inheriting classes.
+Give rocks and gems velocity. Actor.move_next() # Make the gems move down.
+Make them loop when hitting the bottom.
+Give gems points. 
+Make video display points.
+
+Player(Actor)
+
