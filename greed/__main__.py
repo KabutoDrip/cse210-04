@@ -1,9 +1,11 @@
-import os
 import random
 
-from game.casting.actor import Actor
-from game.casting.artifact import Artifact
 from game.casting.cast import Cast
+from game.casting.actor import Actor
+from game.casting.gem import Gem
+from game.casting.rock import Rock
+from game.casting.player import Player
+
 
 from game.directing.director import Director
 
@@ -21,14 +23,13 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-CAPTION = "Robot Finds Kitten"
-DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
+CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
+FALLING_GEMS = 20
+FALLING_ROCKS = 20
 
 
 def main():
-    
     # create the cast
     cast = Cast()
     
@@ -40,44 +41,39 @@ def main():
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
     
-    # create the robot
+    # create the player
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = 0
     position = Point(x, y)
 
-    robot = Actor()
-    robot.set_text("#")
-    robot.set_font_size(FONT_SIZE)
-    robot.set_color(WHITE)
-    robot.set_position(position)
-    cast.add_actor("robots", robot)
+    player = Player()
+    player.set_text("___")
+    player.set_font_size(FONT_SIZE)
+    player.set_color(WHITE)
+    player.set_position(position)
+    player.update_score(0)
+    cast.add_actor("player", player)
     
-    # create the artifacts
-    with open(DATA_PATH) as file:
-        data = file.read()
-        messages = data.splitlines()
-
-    for n in range(DEFAULT_ARTIFACTS):
-        text = chr(random.randint(33, 126))
-        message = messages[n]
-
+    
+    # creates the falling objects and adds them to the cast
+   
+    for n in range(FALLING_GEMS):
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
-        position = position.scale(CELL_SIZE)
+        position = position.scale(CELL_SIZE)               
+        gem = Gem()
+        gem.set_position(position)
+        cast.add_actor("falling_objects", gem)
 
-        r = random.randint(0, 255)
-        g = random.randint(0, 255)
-        b = random.randint(0, 255)
-        color = Color(r, g, b)
-        
-        artifact = Artifact()
-        artifact.set_text(text)
-        artifact.set_font_size(FONT_SIZE)
-        artifact.set_color(color)
-        artifact.set_position(position)
-        artifact.set_message(message)
-        cast.add_actor("artifacts", artifact)
+    for n in range(FALLING_ROCKS):
+        x = random.randint(1, COLS - 1)
+        y = random.randint(1, ROWS - 1)
+        position = Point(x, y)
+        position = position.scale(CELL_SIZE)               
+        rock = Rock()
+        rock.set_position(position)
+        cast.add_actor("falling_objects", rock)    
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
