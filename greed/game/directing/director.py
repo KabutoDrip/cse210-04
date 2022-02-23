@@ -65,7 +65,7 @@ class Director:
             if object.get_position().get_y() == 0:
                 object.set_position(random.randint(0, max_x), max_y)
             else:
-                object.move_next(object.move_next(max_x, max_y))
+                object.move_next(max_x, max_y)
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
