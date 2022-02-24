@@ -20,8 +20,7 @@ class Rock(Actor):
     sp = randint(2,3)                # falling spead of Rock 
     self.set_velocity(Point(0,2**sp))    # y by powers of 2
 
-    
-    
+
   def get_point(self):
     #gets the point value of the rock
     return self._point_value
