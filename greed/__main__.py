@@ -43,7 +43,7 @@ def main():
     
     # create the player
     x = int(MAX_X / 2)
-    y = 0
+    y = MAX_Y
     position = Point(x, y)
 
     player = Player()
