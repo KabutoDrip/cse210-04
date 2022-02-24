@@ -17,7 +17,7 @@ class Rock(Actor):
     self.set_text("o")
     self.set_color(Color(0,0,255)) 
     # (0,0,255) = the color blue
-    self.set_velocity(Point(0,1))
+    self.set_velocity(Point(0,5))
     
     
   def get_point(self):

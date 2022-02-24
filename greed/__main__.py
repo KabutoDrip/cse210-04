@@ -19,10 +19,10 @@ from game.shared.point import Point
 FRAME_RATE = 12
 MAX_X = 900
 MAX_Y = 600
-CELL_SIZE = 15
-FONT_SIZE = 15
-COLS = 60
-ROWS = 40
+CELL_SIZE = 24
+FONT_SIZE = 24
+COLS = MAX_X / CELL_SIZE
+ROWS = MAX_Y / CELL_SIZE
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
 FALLING_GEMS = 20
@@ -42,9 +42,12 @@ def main():
     cast.add_actor("banners", banner)
     
     # create the player
-    x = int(MAX_X / 2)
-    y = MAX_Y
+    x = int(COLS / 2)
+    y = ROWS -2
     position = Point(x, y)
+    position = position.scale(CELL_SIZE)               
+
+    
 
     player = Player()
     player.set_text("___")
@@ -58,8 +61,8 @@ def main():
     # creates the falling objects and adds them to the cast
    
     for n in range(FALLING_GEMS):
-        x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS - 1)
+        x = random.randint(1, COLS - 2)
+        y = random.randint(1, ROWS - 2)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)               
         gem = Gem()
