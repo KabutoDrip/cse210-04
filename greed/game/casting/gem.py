@@ -24,7 +24,7 @@ class Gem(Actor):
 
     def __init__(self):
         super().__init__()
-        self._point_value = 0
+        self._point_value = 1
         # self.set_text("💎")
         self.set_text("G")
         self._font_size = 24
