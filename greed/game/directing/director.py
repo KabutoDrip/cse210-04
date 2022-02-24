@@ -61,11 +61,11 @@ class Director:
         player.move_next(max_x, max_y)
         
         for object in falling_objects:
-            if player.get_position().equals(object.get_position()):
+            if player.get_position().equals(object.get_position()): # optional: player length interaction.
                 player.update_score(object.get_point())
-                object.set_position(Point(random.randint(0, max_x), 0))
-            if object.get_position().get_y() == max_y:
-                object.set_position(Point(random.randint(0, max_x), 0))
+                object.set_position(Point((random.randint(0, (max_x//24) -1)) * 24, 0))
+            if object.get_position().get_y() == max_y -24:
+                object.set_position(Point((random.randint(0, (max_x//24) -1)) * 24, 0))
             else:
                 object.move_next(max_x, max_y)
         
