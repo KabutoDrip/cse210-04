@@ -21,8 +21,8 @@ MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 24
 FONT_SIZE = 24
-COLS = MAX_X / CELL_SIZE
-ROWS = MAX_Y / CELL_SIZE
+COLS = MAX_X // CELL_SIZE
+ROWS = MAX_Y // CELL_SIZE
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
 FALLING_GEMS = 20
@@ -42,7 +42,7 @@ def main():
     cast.add_actor("banners", banner)
     
     # create the player
-    x = int(COLS / 2)
+    x = int(COLS // 2)
     y = ROWS -2
     position = Point(x, y)
     position = position.scale(CELL_SIZE)               
@@ -50,7 +50,7 @@ def main():
     
 
     player = Player()
-    player.set_text("___")
+    player.set_text("_")
     player.set_font_size(FONT_SIZE)
     player.set_color(WHITE)
     player.set_position(position)
