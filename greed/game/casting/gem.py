@@ -1,8 +1,11 @@
+from random import randint
+#from pyray import get_char_pressed
 from game.shared.color import Color
 from game.shared.point import Point
 from game.casting.actor import Actor
 
 class Gem(Actor):
+
     """
     Gem: 
     Replace Artifact with Rock(Actor) and Gem(Actor) and Player(Actor) # Make 3 inheriting classes.
@@ -14,22 +17,24 @@ class Gem(Actor):
     
     Attributes for Gem:
         _point_value(int): Point value which Gem has.
-     """
 
-    # def __init__(self):
-    #     self._text = ""
-    #     self._font_size = 24
-    #     self._color = Color(255, 255, 255)
-    #     self._position = Point(0, 0)
-    #     self._velocity = Point(0, 0)
+    Color: Light Yellow R255 G241 B0
+    """
+ 
 
     def __init__(self):
         super().__init__()
         self._point_value = 0
+        # self.set_text("💎")
+        self.set_text("G")
+        self._font_size = 24
+        self.set_color(Color(255,241,0)) # Light Yellow
+        sp = randint(2,3)                # falling spead of Gem 
+        self.set_velocity(Point(0,2**sp))    # y by powers of 2
+
 
     def get_point(self):
         #gets the point value of the gem
         return self._point_value
 
 
-    

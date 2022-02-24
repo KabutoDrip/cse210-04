@@ -54,7 +54,6 @@ def main():
     player.set_font_size(FONT_SIZE)
     player.set_color(WHITE)
     player.set_position(position)
-    player.update_score(0)
     cast.add_actor("player", player)
     
     
