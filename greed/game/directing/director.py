@@ -1,4 +1,5 @@
 import random
+from game.shared.point import Point
 
 class Director:
     """A person who directs the game. 
@@ -54,7 +55,7 @@ class Director:
         falling_objects = cast.get_actors("falling_objects")
         
 
-        banner.set_text(player.get_score)
+        banner.set_text(f"Score: {player.get_score}")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         player.move_next(max_x, max_y)
@@ -63,7 +64,7 @@ class Director:
             if player.get_position().equals(object.get_position()):
                 player.update_score(object.get_point())
             if object.get_position().get_y() == 0:
-                object.set_position(random.randint(0, max_x), max_y)
+                object.set_position(Point(random.randint(0, max_x), max_y))
             else:
                 object.move_next(max_x, max_y)
         
