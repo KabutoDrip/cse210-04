@@ -55,7 +55,7 @@ class Director:
         falling_objects = cast.get_actors("falling_objects")
         
 
-        banner.set_text(f"Score: {player.get_score}")
+        banner.set_text("Score: {player.get_score}")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         player.move_next(max_x, max_y)
@@ -63,8 +63,9 @@ class Director:
         for object in falling_objects:
             if player.get_position().equals(object.get_position()):
                 player.update_score(object.get_point())
-            if object.get_position().get_y() == 0:
-                object.set_position(Point(random.randint(0, max_x), max_y))
+                object.set_position(Point(random.randint(0, max_x), 0))
+            if object.get_position().get_y() == max_y:
+                object.set_position(Point(random.randint(0, max_x), 0))
             else:
                 object.move_next(max_x, max_y)
         
