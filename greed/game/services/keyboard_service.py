@@ -28,15 +28,15 @@ class KeyboardService:
         """
         dx = 0
 
-        if pyray.is_key_down(pyray.KEY_LEFT):
+        if pyray.is_key_left(pyray.KEY_LEFT):
             dx = -1
         
-        if pyray.is_key_down(pyray.KEY_RIGHT):
+        if pyray.is_key_right(pyray.KEY_RIGHT):
             dx = 1
         
        
 
-        direction = Point(dx)
+        direction = Point(dx, 0)
         direction = direction.scale(self._cell_size)
         
         return direction

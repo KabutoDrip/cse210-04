@@ -9,7 +9,7 @@ class Player(Actor):
     def get_score(self):
         ##gets the current score of the game
         ()
-    def update_score(self):
+    def update_score(self, score):
         ##updates the score of the 
         ()
     def give_score(self):

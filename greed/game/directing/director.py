@@ -1,3 +1,5 @@
+import random
+
 class Director:
     """A person who directs the game. 
     
@@ -37,9 +39,9 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        robot = cast.get_first_actor("robots")
+        player = cast.get_first_actor("player")
         velocity = self._keyboard_service.get_direction()
-        robot.set_velocity(velocity)        
+        player.set_velocity(velocity)        
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
@@ -48,18 +50,22 @@ class Director:
             cast (Cast): The cast of actors.
         """
         banner = cast.get_first_actor("banners")
-        robot = cast.get_first_actor("robots")
-        artifacts = cast.get_actors("artifacts")
+        player = cast.get_first_actor("player")
+        falling_objects = cast.get_actors("falling_objects")
+        
 
-        banner.set_text("")
+        banner.set_text(player.get_score)
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
-        robot.move_next(max_x, max_y)
+        player.move_next(max_x, max_y)
         
-        for artifact in artifacts:
-            if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)    
+        for object in falling_objects:
+            if player.get_position().equals(object.get_position()):
+                player.update_score(object.get_point())
+            if object.get_position().get_y() == 0:
+                object.set_position(random.randint(0, max_x), max_y)
+            else:
+                object.move_next(max_x, max_y)
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
