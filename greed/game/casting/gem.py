@@ -1,4 +1,5 @@
-from pyray import get_char_pressed
+from random import randint
+#from pyray import get_char_pressed
 from game.shared.color import Color
 from game.shared.point import Point
 from game.casting.actor import Actor
@@ -20,7 +21,7 @@ class Gem(Actor):
     Color: Light Yellow R255 G241 B0
     """
  
- 
+
     def __init__(self):
         super().__init__()
         self._point_value = 0
@@ -28,7 +29,8 @@ class Gem(Actor):
         self.set_text("G")
         self._font_size = 24
         self.set_color(Color(255,241,0)) # Light Yellow
-        self.set_velocity(Point(0,4))    # y by powers of 2
+        sp = randint(2,3)                # falling spead of Gem 
+        self.set_velocity(Point(0,2**sp))    # y by powers of 2
 
 
     def get_point(self):
