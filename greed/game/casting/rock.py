@@ -15,7 +15,7 @@ class Rock(Actor):
     super().__init__()
     self._point_value = -1
     self.set_text("o")
-    self.set_color(Color(0,0,255)) 
+    self.set_color(Color(107,107,107)) 
     # (0,0,255) = the color blue
     self.set_velocity(Point(0,8)) # y by powers of 2?
     

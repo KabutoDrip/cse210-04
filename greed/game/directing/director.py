@@ -55,7 +55,7 @@ class Director:
         falling_objects = cast.get_actors("falling_objects")
         
 
-        banner.set_text("Score: {player.get_score}")
+        banner.set_text(f"Score: {player.get_score()}")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         player.move_next(max_x, max_y)
