@@ -1,5 +1,7 @@
 # Greed
-Write greed game description here.
+In this game of greed, use your arrow keys to horizontally navigate a field of falling objects. Your goal is to catch the falling gems (gold "G"s), each worth 1 point. As you do this, beware of the falling rocks (grey "o"s), each worth -1 point. 
+
+Greed is a zen game, so rack up those points, then exit when you are done. Have fun!
 
 ## Getting Started
 ---
